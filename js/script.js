@@ -91,6 +91,6 @@ input.addEventListener("keyup", (e) => {
       window.location.assign("#seller");
       break;
   }
-  // e.preventDefault();
+  e.preventDefault();
 });
 
