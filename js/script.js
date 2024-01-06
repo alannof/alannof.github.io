@@ -1,3 +1,15 @@
+window.addEventListener("load", () => {
+  const loaderOverlay = document.querySelector(".loader-overlay");
+  const loader = document.querySelector(".loader");
+  loaderOverlay.style.opacity = 1;
+  setTimeout(() => {
+    loaderOverlay.style.opacity = 0;
+    setTimeout(() => {
+      loaderOverlay.classList.add('hidden');
+    }, 500);
+  }, 3000);
+});
+
 // Helper function to toggle active class
 const toggleActiveClass = (element, className) => {
   element.classList.toggle(className);
@@ -74,23 +86,21 @@ window.addEventListener("click", (e) => {
 });
 
 const input = document.querySelector('input[type="search"]');
+const destinations = {
+  home: "#",
+  about: "#about",
+  contact: "#contact",
+  best: "#seller",
+};
+
 input.addEventListener("keyup", (e) => {
-  const sbv = input.value.toLowerCase();
-  console.log(sbv);
-  switch (sbv) {
-    case "about":
-      window.location.assign("#about");
-      break;
-    case "contact":
-      window.location.assign("#contact");
-      break;
-    case "product":
-      window.location.assign("/product.html");
-      break;
-    case "best":
-      window.location.assign("#seller");
-      break;
+  let inputValue = input.value.toLowerCase();
+  console.log(inputValue);
+
+  if (destinations.hasOwnProperty(inputValue)) {
+    window.location.replace(destinations[inputValue]);
+  } else if (inputValue === "product") {
+    window.location.assign("/product.html");
   }
   e.preventDefault();
 });
-
