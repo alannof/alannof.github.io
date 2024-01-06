@@ -16,6 +16,10 @@
   --tertiary: #b2533e;
 }
 
+.hidden {
+  display: none;
+}
+
 html {
   font-size: 65%;
   font-family: "Poppins", sans-serif;
@@ -42,6 +46,7 @@ body {
   }
 }
 ::-webkit-scrollbar {
+  display: none;
   width: 1.3rem;
 }
 
